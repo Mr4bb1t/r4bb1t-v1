@@ -6,7 +6,9 @@
 #define DEBUG_PORT Serial
 #define DEBUG_BAUD 115200
 
-#define DEFAULT_ESP8266
+ #define R4BB1T_V1
+
+//#define DEFAULT_ESP8266
 
 // #define NODEMCU
 // #define WEMOS_D1_MINI
@@ -76,10 +78,10 @@
   #define FLIP_DIPLAY true
 
   #define SH1106_I2C
-
   #define I2C_ADDR 0x3C
   #define I2C_SDA 14      // D2
   #define I2C_SCL 12      // D1
+
 
 // ===== BUTTONS ===== //
   #define BUTTON_UP 14   // D5
@@ -375,16 +377,22 @@
  #define LED_MY92_CH_BRIGHTNESS 3
  #define LED_MY92_MODEL MY92XX_MODEL_MY9291
 
-#elif defined(DEFAULT_ESP8266) || defined(NODEMCU) || defined(WEMOS_D1_MINI) || defined(DSTIKE_USB_DEAUTHER) || defined(DSTIKE_NODEMCU_07) || defined(DSTIKE_DEAUTHER_V1) || defined(DSTIKE_DEAUTHER_V2) || defined(DSTIKE_DEAUTHER_V3)
+//ATENÇÃO - DEFINIÇÃO DOS PINOS PARA OS BOTOES.
+
+#elif defined(R4BB1T_V1) || defined(DEFAULT_ESP8266) || defined(NODEMCU) || defined(WEMOS_D1_MINI) || defined(DSTIKE_USB_DEAUTHER) || defined(DSTIKE_NODEMCU_07) || defined(DSTIKE_DEAUTHER_V1) || defined(DSTIKE_DEAUTHER_V2) || defined(DSTIKE_DEAUTHER_V3)
+
 // ===== LED ===== //
-// #define LED_DIGITAL
-// #define LED_PIN_R 16 // NodeMCU on-board LED
-// #define LED_PIN_B 2  // ESP-12 LED
+ //#define LED_DIGITAL
+ //#define LED_PIN_R 16 // NodeMCU on-board LED
+ //#define LED_PIN_B 2  // ESP-12 LED
+
+// ===== BUTTONS ==== //
+
  #define BUTTON_UP 14 //D5 - GPIO14 - verde
- #define BUTTON_DOWN 12  //D6 - GPIO015 azul
- #define BUTTON_A 13 //D7 - GPIO13 branco
+ #define BUTTON_DOWN 12  //D6 - GPIO015 - azul
+ #define BUTTON_A 13 //D7 - GPIO13 - branco
 #endif /* if defined(DEFAULT_ESP8266) || defined(NODEMCU) || defined(WEMOS_D1_MINI) || defined(DSTIKE_USB_DEAUTHER) || defined(DSTIKE_NODEMCU_07) || defined(DSTIKE_DEAUTHER) || defined(DSTIKE_DEAUTHER_V1) || defined(DSTIKE_DEAUTHER_V2) || defined(DSTIKE_DEAUTHER_V3) */
-// ============================== //
+
 
 
 // ========= FALLBACK ========= //
@@ -535,6 +543,7 @@
 
 #ifndef DISPLAY_TEXT
   #define DISPLAY_TEXT "R4BB1T v1"
+  //#define DISPLAY_TEXT "R4BB1T v1.1"
 #endif /* ifndef DISPLAY_TEXT */
 
 #ifndef FLIP_DIPLAY
@@ -552,6 +561,14 @@
   #define I2C_ADDR 0x3C
 #endif /* ifndef I2C_ADDR */
 
+
+//==========================================================
+// DEFINIÇÃO PINOS I2C DA TELA - SELECIONE O MODELO CORRETO
+//==========================================================
+
+
+//======== r4bb1t v1 =========//
+
 #ifndef I2C_SDA 
   #define I2C_SDA 14
 #endif /* ifndef I2C_SDA */
@@ -559,6 +576,19 @@
 #ifndef I2C_SCL
   #define I2C_SCL 12
 #endif /* ifndef I2C_SCL */
+
+
+//======== r4bb1t v1.1 =========//
+
+//#ifndef I2C_SDA 
+ // #define I2C_SDA 4
+//#endif /* ifndef I2C_SDA */
+
+//#ifndef I2C_SCL
+ // #define I2C_SCL 5
+//#endif /* ifndef I2C_SCL */
+
+//=================================================
 
 #ifndef SPI_RES
   #define SPI_RES 5
